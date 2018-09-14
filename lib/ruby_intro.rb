@@ -1,35 +1,66 @@
 # When done, submit this entire file to the autograder.
-
+# Caitlin Fanning and Mia Kim
 # Part 1
 
 def sum arr
-  # YOUR CODE HERE
+  total_sum = 0
+    if arr.empty?
+        return 0
+    else 
+        return arr.sum
+    end
 end
 
 def max_2_sum arr
-  # YOUR CODE HERE
+  total_sum = 0
+    if arr.empty?
+        return 0
+        else
+        return arr.sort.last(2).sum
+    end
 end
 
 def sum_to_n? arr, n
-  # YOUR CODE HERE
+     return false if arr.empty? && n.zero?
+    arr.combination(2).any? {|a, b| a + b == n}
 end
 
 # Part 2
 
 def hello(name)
-  # YOUR CODE HERE
+  "Hello, #{name}"
 end
 
 def starts_with_consonant? s
-  # YOUR CODE HERE
+  if /^[^aeiou\W]/i.match(s) == nil || /^[^AEIOU\W]/i.match(s) == nil
+    return false
+    else
+    return true
+end
 end
 
 def binary_multiple_of_4? s
-  # YOUR CODE HERE
+  if s == "0"
+      return true
+  else
+      /^[10]*00$/.match(s) != nil
+  end
 end
 
 # Part 3
 
 class BookInStock
-# YOUR CODE HERE
+     attr_accessor :isbn, :price
+    def initialize(isbn, price)
+        @isbn = isbn
+        @price = price
+        if isbn.empty? or price <= 0
+        raise ArgumentError
+        end
+	end
+ 
+	def price_as_string
+        sprintf("$%2.2f", @price)
+	end
 end
+
